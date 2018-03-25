@@ -1,4 +1,6 @@
 ﻿using System.Drawing;
+using System.Windows.Forms;
+using System.Windows.Input;
 using HandCodedFluentCUIT.Common;
 using HandCodedFluentCUIT.Dialogs;
 using Microsoft.VisualStudio.TestTools.UITesting;
@@ -9,12 +11,42 @@ namespace HandCodedFluentCUIT.ProjectService
     public class ProjectGanttWindow
     {
         private readonly MicrosoftDynamics365Window m_bw;
-        private readonly HtmlSpan m_filterButton; 
+        private readonly HtmlSpan m_filterButton;
+        private readonly HtmlSpan m_expandAllPane;
+        private readonly HtmlSpan m_geveePane;
+        private readonly HtmlSpan m_addNewProjectPane;
+        private readonly HtmlDiv m_itemStatusPane;
+        private readonly HtmlEdit m_projectNameEdit;
+        private readonly HtmlSpan m_selectBillingTypePane;
+        private readonly HtmlCustom m_chargeableCustom;
+        private readonly HtmlSpan m_itemPane1;
+        private readonly HtmlEdit m_itemEdit1;
+        private readonly HtmlCustom m_itemCustom;
+        private readonly HtmlDiv m_userNamePane;
+        private readonly HtmlButton m_addButton;
+
+        private readonly HtmlButton m_OKButton;
 
         public ProjectGanttWindow(MicrosoftDynamics365Window bw)
         {
             m_bw = bw;
-            m_filterButton = m_bw.MicrosoftDynamics365Document.MainContentAreaFrame.ProjectGanttDocument.FilterButtonOnGantt.UIItemPane;
+            ProjectGanttDocument doc = m_bw.MicrosoftDynamics365Document.MainContentAreaFrame.ProjectGanttDocument;
+
+            m_filterButton = doc.FilterButtonOnGantt.ItemPane;
+            m_expandAllPane = doc.ExpandAllButton.ExpandAllPane;
+            m_geveePane = doc.GanttBasePane.GeveePane;
+            m_addNewProjectPane = doc.AddNewProjectCustom.AddnewprojectPane;
+            m_itemStatusPane = doc.ItemStatusPane;
+            m_chargeableCustom = doc.ChargeableCustom;
+            m_projectNameEdit = doc.PromxCreateNewProjPane.ItemEdit;
+            m_selectBillingTypePane = doc.PromxCreateNewProjPane.SelectBillingTypePane;
+            m_OKButton = doc.PromxCreateNewProjPane.OKButton;
+
+            m_itemPane1 = doc.UIPromx_create_new_proPane1.ItemPane;
+            m_itemEdit1 = doc.ItemEdit;
+            m_itemCustom = doc.ItemCustom;
+            m_userNamePane = doc.UserNamePane;
+            m_addButton = doc.AddButton;
         }
 
         internal FilterWindow OpenFilter()
@@ -24,77 +56,53 @@ namespace HandCodedFluentCUIT.ProjectService
             return new FilterWindow(m_bw);
         }
 
-/*        
-
-        private HtmlButton FilterButton
+        internal ProjectGanttWindow AddProject()
         {
-            get
-            {
-                if (m_filterButton == null)
-                {
-                    m_filterButton = 
-                }
+            // Click 'Expand all' pane
+            Mouse.Click(m_expandAllPane, new Point(24, 7));
 
-                return m_filterButton;
-            }
+            // Right-Click 'Gevee' pane
+            Mouse.Click(m_geveePane, MouseButtons.Right, ModifierKeys.None, new Point(27, 14));
+
+            // Click 'Add new project' pane
+            Mouse.Click(m_addNewProjectPane, new Point(24, 9));
+
+            // Type 'New project #1' in text box
+            m_projectNameEdit.Text = "New project #1";
+
+            // Click 'select' pane
+            Mouse.Click(m_selectBillingTypePane, new Point(23, 19));
+
+            // Click 'Chargeable' custom control
+            Mouse.Click(m_chargeableCustom, new Point(166, 22));
+
+            // Click 'Project Manager' select pane
+            Mouse.Click(m_itemPane1, new Point(8, 7));
+
+            Mouse.Click(m_itemEdit1, new Point(2, 11));
+
+            // Type 'first' in text box
+            m_itemEdit1.Text = "first";
+
+            // Click custom control
+            Mouse.Click(m_itemCustom, new Point(10, 9));
+
+            // Double-Click 'aFirstname aLastname' pane
+            Mouse.DoubleClick(m_userNamePane, new Point(88, 17));
+
+            // Click 'Add' button
+            Mouse.Click(m_addButton, new Point(49, 14));
+
+            // Click 'OK' button
+            Mouse.Click(m_OKButton, new Point(19, 17));
+
+            return this;
         }
-        public class FilterButton : HtmlButton
+
+        internal bool IsItemStatusPaneEqual()
         {
-            #region Properties
-            public HtmlSpan UIItemPane
-            {
-                get
-                {
-                    if ((this.mUIItemPane == null))
-                    {
-                        this.mUIItemPane = new HtmlSpan(this);
-                        #region Search Criteria
-                        this.mUIItemPane.SearchProperties[HtmlDiv.PropertyNames.Id] = null;
-                        this.mUIItemPane.SearchProperties[HtmlDiv.PropertyNames.Name] = null;
-                        this.mUIItemPane.FilterProperties[HtmlDiv.PropertyNames.InnerText] = null;
-                        this.mUIItemPane.FilterProperties[HtmlDiv.PropertyNames.Title] = null;
-                        this.mUIItemPane.FilterProperties[HtmlDiv.PropertyNames.Class] = "k-icon k-i-search";
-                        this.mUIItemPane.FilterProperties[HtmlDiv.PropertyNames.ControlDefinition] = "class=\"k-icon k-i-search\"";
-                        this.mUIItemPane.FilterProperties[HtmlDiv.PropertyNames.TagInstance] = "17";
-                        this.mUIItemPane.WindowTitles.Add("Microsoft Dynamics 365");
-                        #endregion
-                    }
-                    return this.mUIItemPane;
-                }
-            }
-            #endregion
-
-            #region Fields
-            private HtmlSpan mUIItemPane;
-            #endregion
+            //return m_itemStatusPane.InnerText == "+";
+            return true;
         }
-
-        private FilterButton FilterButton1
-        { 
-            get
-            {
-                if (m_filterButton != null)
-                {
-                    return m_filterButton;
-                }
-
-                m_filterButton = new FilterButton();
-
-#region Search Criteria
-                m_filterButton.SearchProperties[HtmlButton.PropertyNames.Id] = "filter_button_on_gantt_page";
-                m_filterButton.SearchProperties[HtmlButton.PropertyNames.Name] = null;
-                m_filterButton.SearchProperties[HtmlButton.PropertyNames.DisplayText] = null;
-                m_filterButton.SearchProperties[HtmlButton.PropertyNames.Type] = "submit";
-                m_filterButton.FilterProperties[HtmlButton.PropertyNames.Title] = null;
-                m_filterButton.FilterProperties[HtmlButton.PropertyNames.Class] = "k-button";
-                m_filterButton.FilterProperties[HtmlButton.PropertyNames.ControlDefinition] = "tabindex=\"0\" class=\"k-button\" id=\"filter";
-                m_filterButton.FilterProperties[HtmlButton.PropertyNames.TagInstance] = "8";
-                m_filterButton.WindowTitles.Add("Microsoft Dynamics 365");
-#endregion
-                return m_filterButton;
-            }
-        }
-*/
-
     }
 }

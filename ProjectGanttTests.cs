@@ -1,17 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Text.RegularExpressions;
-using System.Windows.Input;
-using System.Windows.Forms;
-using System.Drawing;
-using HandCodedFluentCUIT.Account;
 using HandCodedFluentCUIT.Common;
 using HandCodedFluentCUIT.ProjectService;
 using Microsoft.VisualStudio.TestTools.UITesting;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Microsoft.VisualStudio.TestTools.UITest.Extension;
-using Keyboard = Microsoft.VisualStudio.TestTools.UITesting.Keyboard;
 
 
 namespace HandCodedFluentCUIT
@@ -34,12 +26,6 @@ namespace HandCodedFluentCUIT
             bw.CloseOnPlaybackCleanup = false;
 
             bw.NavigateToUrl(new Uri("https://promxtest20180312.crm4.dynamics.com/"));
-
-            //new LoginWindow(MainBrowserWindow)
-            //    .LoginAction()
-            //    .GoToProjectGantt().OpenFilter();
-            new MainAppWindow(new MicrosoftDynamics365Window())
-                .GoToProjectGantt();
         }
 
         [ClassCleanup]
@@ -63,12 +49,22 @@ namespace HandCodedFluentCUIT
 
             MicrosoftDynamics365Window bw = new MicrosoftDynamics365Window();
             bw.CopyFrom(BrowserWindow.FromProcess(_process));
-            Assert.IsTrue( new ProjectGanttWindow(bw)
-                            //.GoToProjectGantt()
+            Assert.IsTrue( new MainAppWindow(bw)
+                            .GoToProjectGantt()
                             .OpenFilter()
                             .SelectAccount()
                             .Refresh()
                             .AccoutListContains("Geeve"));
+        }
+
+        [TestMethod]
+        public void AddProject()
+        {
+            MicrosoftDynamics365Window bw = new MicrosoftDynamics365Window();
+            bw.CopyFrom(BrowserWindow.FromProcess(_process));
+            Assert.IsTrue(new ProjectGanttWindow(bw)
+                            .AddProject()
+                            .IsItemStatusPaneEqual());
         }
 
         #region Additional test attributes
@@ -97,22 +93,5 @@ namespace HandCodedFluentCUIT
         ///information about and functionality for the current test run.
         ///</summary>
         public TestContext TestContext { get; set; }
-
-        /*
-        private static MicrosoftDynamics365Window m_mainBrowserWindow;
-
-        private static MicrosoftDynamics365Window MainBrowserWindow
-        {
-            get
-            {
-                if (m_mainBrowserWindow == null)
-                {
-                    m_mainBrowserWindow = new MicrosoftDynamics365Window();
-                }
-
-                return m_mainBrowserWindow;
-            }
-        }
-*/
     }
 }

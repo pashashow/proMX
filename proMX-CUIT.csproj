@@ -55,19 +55,25 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account\LoginWindow.cs" />
+    <Compile Include="Common\AddnewprojectCustom.cs" />
+    <Compile Include="ProjectService\ItemTable.cs" />
+    <Compile Include="ProjectService\GanttBasePane.cs" />
     <Compile Include="Common\DashboardsSalesActivDocument.cs" />
     <Compile Include="Common\MainAppWindow.cs" />
     <Compile Include="Common\MainContentAreaFrame.cs" />
     <Compile Include="Common\MicrosoftDynamics365Document.cs" />
     <Compile Include="Common\MicrosoftDynamics365Window.cs" />
+    <Compile Include="ProjectService\PromxCreateNewProjectPane.cs" />
     <Compile Include="Common\TabHomePane.cs" />
     <Compile Include="Dialogs\FilterWindow.cs" />
+    <Compile Include="ProjectService\ExpandAllButton.cs" />
     <Compile Include="ProjectService\FilterButtonOnGantt.cs" />
     <Compile Include="ProjectService\ProjectGanttDocument.cs" />
     <Compile Include="ProjectService\ProjectGanttWindow.cs" />
     <Compile Include="Common\ToolBar.cs" />
     <Compile Include="ProjectGanttTests.cs" />
     <Compile Include="ProjectService\RefreshButton.cs" />
+    <Compile Include="ProjectService\UIPromx_create_new_proPane1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Choose>
