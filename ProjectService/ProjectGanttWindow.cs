@@ -38,11 +38,11 @@ namespace HandCodedFluentCUIT.ProjectService
             m_addNewProjectPane = doc.AddNewProjectCustom.AddnewprojectPane;
             m_itemStatusPane = doc.ItemStatusPane;
             m_chargeableCustom = doc.ChargeableCustom;
-            m_projectNameEdit = doc.PromxCreateNewProjPane.ItemEdit;
+            m_projectNameEdit = doc.PromxCreateNewProjPane.ProjectNameItemEdit;
             m_selectBillingTypePane = doc.PromxCreateNewProjPane.SelectBillingTypePane;
             m_OKButton = doc.PromxCreateNewProjPane.OKButton;
 
-            m_itemPane1 = doc.UIPromx_create_new_proPane1.ItemPane;
+            m_itemPane1 = doc.UIPromx_create_new_proPane1.ProjectManagerItemPane;
             m_itemEdit1 = doc.ItemEdit;
             m_itemCustom = doc.ItemCustom;
             m_userNamePane = doc.UserNamePane;

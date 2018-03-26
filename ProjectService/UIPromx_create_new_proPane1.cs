@@ -10,43 +10,43 @@ namespace HandCodedFluentCUIT.ProjectService
                 base(searchLimitContainer)
         {
             #region Search Criteria
-            this.SearchProperties[HtmlDiv.PropertyNames.Id] = "promx_create_new_project_project_manager_lookup_div";
-            this.SearchProperties[HtmlDiv.PropertyNames.Name] = null;
-            this.FilterProperties[HtmlDiv.PropertyNames.InnerText] = null;
-            this.FilterProperties[HtmlDiv.PropertyNames.Title] = null;
-            this.FilterProperties[HtmlDiv.PropertyNames.Class] = "smb-lookup";
-            this.FilterProperties[HtmlDiv.PropertyNames.ControlDefinition] = "class=\"smb-lookup\" id=\"promx_create_new_project_project_manager_lookup_div\"";
-            this.FilterProperties[HtmlDiv.PropertyNames.TagInstance] = "179";
-            this.WindowTitles.Add("Microsoft Dynamics 365");
+            SearchProperties[HtmlDiv.PropertyNames.Id] = "promx_create_new_project_project_manager_lookup_div";
+            SearchProperties[HtmlDiv.PropertyNames.Name] = null;
+            FilterProperties[HtmlDiv.PropertyNames.InnerText] = null;
+            FilterProperties[HtmlDiv.PropertyNames.Title] = null;
+            FilterProperties[HtmlDiv.PropertyNames.Class] = "smb-lookup";
+            FilterProperties[HtmlDiv.PropertyNames.ControlDefinition] = "class=\"smb-lookup\" id=\"promx_create_new_project_project_manager_lookup_div\"";
+            FilterProperties[HtmlDiv.PropertyNames.TagInstance] = "179";
+            WindowTitles.Add("Microsoft Dynamics 365");
             #endregion
         }
 
         #region Properties
-        public HtmlSpan ItemPane
+        public HtmlSpan ProjectManagerItemPane
         {
             get
             {
-                if ((this.m_itemPane == null))
+                if (m_projectManagerItemPane == null)
                 {
-                    this.m_itemPane = new HtmlSpan(this);
+                    m_projectManagerItemPane = new HtmlSpan(this);
                     #region Search Criteria
-                    this.m_itemPane.SearchProperties[HtmlDiv.PropertyNames.Id] = null;
-                    this.m_itemPane.SearchProperties[HtmlDiv.PropertyNames.Name] = null;
-                    this.m_itemPane.FilterProperties[HtmlDiv.PropertyNames.InnerText] = null;
-                    this.m_itemPane.FilterProperties[HtmlDiv.PropertyNames.Title] = null;
-                    this.m_itemPane.FilterProperties[HtmlDiv.PropertyNames.Class] = "k-icon k-i-search";
-                    this.m_itemPane.FilterProperties[HtmlDiv.PropertyNames.ControlDefinition] = "class=\"k-icon k-i-search\"";
-                    this.m_itemPane.FilterProperties[HtmlDiv.PropertyNames.TagInstance] = "352";
-                    this.m_itemPane.WindowTitles.Add("Microsoft Dynamics 365");
+                    m_projectManagerItemPane.SearchProperties[HtmlDiv.PropertyNames.Id] = null;
+                    m_projectManagerItemPane.SearchProperties[HtmlDiv.PropertyNames.Name] = null;
+                    m_projectManagerItemPane.FilterProperties[HtmlDiv.PropertyNames.InnerText] = null;
+                    m_projectManagerItemPane.FilterProperties[HtmlDiv.PropertyNames.Title] = null;
+                    m_projectManagerItemPane.FilterProperties[HtmlDiv.PropertyNames.Class] = "k-icon k-i-search";
+                    m_projectManagerItemPane.FilterProperties[HtmlDiv.PropertyNames.ControlDefinition] = "class=\"k-icon k-i-search\"";
+                    m_projectManagerItemPane.FilterProperties[HtmlDiv.PropertyNames.TagInstance] = "352";
+                    m_projectManagerItemPane.WindowTitles.Add("Microsoft Dynamics 365");
                     #endregion
                 }
-                return this.m_itemPane;
+                return m_projectManagerItemPane;
             }
         }
         #endregion
 
         #region Fields
-        private HtmlSpan m_itemPane;
+        private HtmlSpan m_projectManagerItemPane;
         #endregion
     }
 }

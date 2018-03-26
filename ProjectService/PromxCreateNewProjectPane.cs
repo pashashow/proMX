@@ -22,26 +22,26 @@ namespace HandCodedFluentCUIT.ProjectService
         }
 
         #region Properties
-        public HtmlEdit ItemEdit
+        public HtmlEdit ProjectNameItemEdit
         {
             get
             {
-                if (m_itemEdit == null)
+                if (m_projectNameItemEdit == null)
                 {
-                    m_itemEdit = new HtmlEdit(this);
+                    m_projectNameItemEdit = new HtmlEdit(this);
                     #region Search Criteria
-                    m_itemEdit.SearchProperties[HtmlEdit.PropertyNames.Id] = null;
-                    m_itemEdit.SearchProperties[HtmlEdit.PropertyNames.Name] = null;
-                    m_itemEdit.SearchProperties[HtmlEdit.PropertyNames.LabeledBy] = null;
-                    m_itemEdit.SearchProperties[HtmlEdit.PropertyNames.Type] = "SINGLELINE";
-                    m_itemEdit.FilterProperties[HtmlEdit.PropertyNames.Title] = null;
-                    m_itemEdit.FilterProperties[HtmlEdit.PropertyNames.Class] = "k-input k-textbox";
-                    m_itemEdit.FilterProperties[HtmlEdit.PropertyNames.ControlDefinition] = "class=\"k-input k-textbox\" style=\"width: ";
-                    m_itemEdit.FilterProperties[HtmlEdit.PropertyNames.TagInstance] = "1";
-                    m_itemEdit.WindowTitles.Add("Microsoft Dynamics 365");
+                    m_projectNameItemEdit.SearchProperties[HtmlEdit.PropertyNames.Id] = null;
+                    m_projectNameItemEdit.SearchProperties[HtmlEdit.PropertyNames.Name] = null;
+                    m_projectNameItemEdit.SearchProperties[HtmlEdit.PropertyNames.LabeledBy] = null;
+                    m_projectNameItemEdit.SearchProperties[HtmlEdit.PropertyNames.Type] = "SINGLELINE";
+                    m_projectNameItemEdit.FilterProperties[HtmlEdit.PropertyNames.Title] = null;
+                    m_projectNameItemEdit.FilterProperties[HtmlEdit.PropertyNames.Class] = "k-input k-textbox";
+                    m_projectNameItemEdit.FilterProperties[HtmlEdit.PropertyNames.ControlDefinition] = "class=\"k-input k-textbox\" style=\"width: ";
+                    m_projectNameItemEdit.FilterProperties[HtmlEdit.PropertyNames.TagInstance] = "1";
+                    m_projectNameItemEdit.WindowTitles.Add("Microsoft Dynamics 365");
                     #endregion
                 }
-                return m_itemEdit;
+                return m_projectNameItemEdit;
             }
         }
 
@@ -92,7 +92,7 @@ namespace HandCodedFluentCUIT.ProjectService
         #endregion
 
         #region Fields
-        private HtmlEdit m_itemEdit;
+        private HtmlEdit m_projectNameItemEdit;
 
         private HtmlSpan m_selectPane;
 

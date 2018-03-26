@@ -1,7 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UITesting;
 using Microsoft.VisualStudio.TestTools.UITesting.HtmlControls;
 
-namespace HandCodedFluentCUIT.Common
+namespace HandCodedFluentCUIT.ProjectService
 {
     public class GanttBasePane : HtmlDiv
     {
@@ -22,6 +22,7 @@ namespace HandCodedFluentCUIT.Common
         }
 
         #region Properties
+/*
         public ItemTable ItemTable
         {
             get
@@ -33,7 +34,7 @@ namespace HandCodedFluentCUIT.Common
                 return m_itemTable;
             }
         }
-
+*/
         public HtmlSpan GeveePane
         {
             get
@@ -42,14 +43,14 @@ namespace HandCodedFluentCUIT.Common
                 {
                     m_geveePane = new HtmlSpan(this);
                     #region Search Criteria
-                    this.m_geveePane.SearchProperties[HtmlDiv.PropertyNames.Id] = null;
-                    this.m_geveePane.SearchProperties[HtmlDiv.PropertyNames.Name] = null;
-                    this.m_geveePane.FilterProperties[HtmlDiv.PropertyNames.InnerText] = "Gevee";
-                    this.m_geveePane.FilterProperties[HtmlDiv.PropertyNames.Title] = null;
-                    this.m_geveePane.FilterProperties[HtmlDiv.PropertyNames.Class] = null;
-                    this.m_geveePane.FilterProperties[HtmlDiv.PropertyNames.ControlDefinition] = "style=\"vertical-align: middle;\" aria-label=\"Gevee, 0 %\"";
-                    this.m_geveePane.FilterProperties[HtmlDiv.PropertyNames.TagInstance] = "35";
-                    this.m_geveePane.WindowTitles.Add("Microsoft Dynamics 365");
+                    m_geveePane.SearchProperties[HtmlDiv.PropertyNames.Id] = null;
+                    m_geveePane.SearchProperties[HtmlDiv.PropertyNames.Name] = null;
+                    m_geveePane.FilterProperties[HtmlDiv.PropertyNames.InnerText] = "Gevee";
+                    m_geveePane.FilterProperties[HtmlDiv.PropertyNames.Title] = null;
+                    m_geveePane.FilterProperties[HtmlDiv.PropertyNames.Class] = null;
+                    m_geveePane.FilterProperties[HtmlDiv.PropertyNames.ControlDefinition] = "style=\"vertical-align: middle;\" aria-label=\"Gevee, 0 %\"";
+                    m_geveePane.FilterProperties[HtmlDiv.PropertyNames.TagInstance] = "35";
+                    m_geveePane.WindowTitles.Add("Microsoft Dynamics 365");
                     #endregion
                 }
                 return this.m_geveePane;
@@ -80,7 +81,7 @@ namespace HandCodedFluentCUIT.Common
         #endregion
 
         #region Fields
-        private ItemTable m_itemTable;
+//        private ItemTable m_itemTable;
 
         private HtmlSpan m_geveePane;
 

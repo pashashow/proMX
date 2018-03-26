@@ -1,6 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UITesting;
 using Microsoft.VisualStudio.TestTools.UITesting.HtmlControls;
-
+/*
 namespace HandCodedFluentCUIT.Common
 {
     public class ItemTable : HtmlTable
@@ -9,15 +9,15 @@ namespace HandCodedFluentCUIT.Common
                 base(searchLimitContainer)
         {
             #region Search Criteria
-            this.SearchProperties[HtmlTable.PropertyNames.Id] = null;
-            this.SearchProperties[HtmlTable.PropertyNames.Name] = null;
-            this.FilterProperties[HtmlTable.PropertyNames.InnerText] = "GeveeActive\r\n Gevee: Product Development";
-            this.FilterProperties[HtmlTable.PropertyNames.ControlDefinition] = "tabindex=\"0\" role=\"treegrid\" style=\"min-width: 961px;\"";
-            this.FilterProperties[HtmlTable.PropertyNames.RowCount] = "4";
-            this.FilterProperties[HtmlTable.PropertyNames.ColumnCount] = "13";
-            this.FilterProperties[HtmlTable.PropertyNames.Class] = null;
-            this.FilterProperties[HtmlTable.PropertyNames.TagInstance] = "2";
-            this.WindowTitles.Add("Microsoft Dynamics 365");
+            SearchProperties[HtmlTable.PropertyNames.Id] = null;
+            SearchProperties[HtmlTable.PropertyNames.Name] = null;
+            FilterProperties[HtmlTable.PropertyNames.InnerText] = "GeveeActive\r\n Gevee: Product Development";
+            FilterProperties[HtmlTable.PropertyNames.ControlDefinition] = "tabindex=\"0\" role=\"treegrid\" style=\"min-width: 961px;\"";
+            FilterProperties[HtmlTable.PropertyNames.RowCount] = "4";
+            FilterProperties[HtmlTable.PropertyNames.ColumnCount] = "13";
+            FilterProperties[HtmlTable.PropertyNames.Class] = null;
+            FilterProperties[HtmlTable.PropertyNames.TagInstance] = "2";
+            WindowTitles.Add("Microsoft Dynamics 365");
             #endregion
         }
 
@@ -52,3 +52,4 @@ namespace HandCodedFluentCUIT.Common
         #endregion
     }
 }
+*/
