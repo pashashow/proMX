@@ -1,1 +1,1 @@
-<Playlist Version="1.0"><Add Test="HandCodedFluentCUIT.ProjectGanttTests.ProjectGantt_AccountListContainsTestAccount_Geeve" /><Add Test="HandCodedFluentCUIT.ProjectGanttTests.AddProject" /></Playlist>
+<Playlist Version="1.0"><Add Test="HandCodedFluentCUIT.ProjectGanttTests.ProjectGantt_AccountListContainsTestAccount_Geeve" /><Add Test="HandCodedFluentCUIT.ProjectGanttTests.AddProject" /><Add Test="HandCodedFluentCUIT.ProjectGanttTests.AddTask" /><Add Test="HandCodedFluentCUIT.ProjectGanttTests.SaveChanges" /></Playlist>

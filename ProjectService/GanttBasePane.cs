@@ -22,19 +22,28 @@ namespace HandCodedFluentCUIT.ProjectService
         }
 
         #region Properties
-/*
-        public ItemTable ItemTable
+        public HtmlSpan NewProjectPane
         {
             get
             {
-                if (m_itemTable == null)
+                if (m_newProjectPane == null)
                 {
-                    m_itemTable = new ItemTable(this);
+                    m_newProjectPane = new HtmlSpan(this);
+                    #region Search Criteria
+                    m_newProjectPane.SearchProperties[HtmlDiv.PropertyNames.Id] = null;
+                    m_newProjectPane.SearchProperties[HtmlDiv.PropertyNames.Name] = null;
+                    m_newProjectPane.FilterProperties[HtmlDiv.PropertyNames.InnerText] = "New project #1";
+                    m_newProjectPane.FilterProperties[HtmlDiv.PropertyNames.Title] = null;
+                    m_newProjectPane.FilterProperties[HtmlDiv.PropertyNames.Class] = null;
+                    m_newProjectPane.FilterProperties[HtmlDiv.PropertyNames.ControlDefinition] = "style=\"vertical-align: middle;\" aria-label=\"New project #1, 0 %\"";
+                    m_newProjectPane.FilterProperties[HtmlDiv.PropertyNames.TagInstance] = "256";
+                    m_newProjectPane.WindowTitles.Add("Microsoft Dynamics 365");
+                    #endregion
                 }
-                return m_itemTable;
+                return m_newProjectPane;
             }
         }
-*/
+
         public HtmlSpan GeveePane
         {
             get
@@ -81,7 +90,7 @@ namespace HandCodedFluentCUIT.ProjectService
         #endregion
 
         #region Fields
-//        private ItemTable m_itemTable;
+        private HtmlSpan m_newProjectPane;
 
         private HtmlSpan m_geveePane;
 

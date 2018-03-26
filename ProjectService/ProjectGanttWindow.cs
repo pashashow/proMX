@@ -13,8 +13,15 @@ namespace HandCodedFluentCUIT.ProjectService
         private readonly MicrosoftDynamics365Window m_bw;
         private readonly HtmlSpan m_filterButton;
         private readonly HtmlSpan m_expandAllPane;
+        private readonly HtmlSpan m_saveChangesPane;
         private readonly HtmlSpan m_geveePane;
         private readonly HtmlSpan m_addNewProjectPane;
+        private readonly HtmlSpan m_newProjectPane;
+        private readonly HtmlSpan m_addChildTaskPane;
+        private readonly HtmlEdit m_projectItemEdit;
+        private readonly HtmlLabel m_projectOkLabel;
+        private readonly HtmlSpan m_resourceCategoryPane;
+        private readonly HtmlDiv m_developerJuniorPane;
         private readonly HtmlDiv m_itemStatusPane;
         private readonly HtmlEdit m_projectNameEdit;
         private readonly HtmlSpan m_selectBillingTypePane;
@@ -22,11 +29,12 @@ namespace HandCodedFluentCUIT.ProjectService
         private readonly HtmlSpan m_itemPane1;
         private readonly HtmlEdit m_itemEdit1;
         private readonly HtmlCustom m_itemCustom;
+        private readonly HtmlCustom m_itemCustom1;
         private readonly HtmlDiv m_userNamePane;
         private readonly HtmlButton m_addButton;
 
         private readonly HtmlButton m_OKButton;
-
+         
         public ProjectGanttWindow(MicrosoftDynamics365Window bw)
         {
             m_bw = bw;
@@ -34,8 +42,15 @@ namespace HandCodedFluentCUIT.ProjectService
 
             m_filterButton = doc.FilterButtonOnGantt.ItemPane;
             m_expandAllPane = doc.ExpandAllButton.ExpandAllPane;
+            m_saveChangesPane = doc.SaveButton.SavePane;
             m_geveePane = doc.GanttBasePane.GeveePane;
             m_addNewProjectPane = doc.AddNewProjectCustom.AddnewprojectPane;
+            m_newProjectPane = doc.GanttBasePane.NewProjectPane;
+            m_addChildTaskPane = doc.AddChildTaskCustom.AddChildTaskPane;
+            m_projectItemEdit = doc.EditProjectTaskWindowPane.ItemEdit;
+            m_projectOkLabel = doc.EditProjectTaskWindowPane.OKLabel;
+            m_resourceCategoryPane = doc.EditProjectTaskResourceRolePane.ItemPane;
+            m_developerJuniorPane = doc.DeveloperJuniorPane;
             m_itemStatusPane = doc.ItemStatusPane;
             m_chargeableCustom = doc.ChargeableCustom;
             m_projectNameEdit = doc.PromxCreateNewProjPane.ProjectNameItemEdit;
@@ -45,12 +60,15 @@ namespace HandCodedFluentCUIT.ProjectService
             m_itemPane1 = doc.UIPromx_create_new_proPane1.ProjectManagerItemPane;
             m_itemEdit1 = doc.ItemEdit;
             m_itemCustom = doc.ItemCustom;
+            m_itemCustom1 = doc.ItemCustom1;
             m_userNamePane = doc.UserNamePane;
             m_addButton = doc.AddButton;
         }
 
         internal FilterWindow OpenFilter()
         {
+            m_bw.MicrosoftDynamics365Document.MainContentAreaFrame.ProjectGanttDocument.WaitForControlReady(10000);
+
             Mouse.Click(m_filterButton, new Point(2, 2));
 
             return new FilterWindow(m_bw);
@@ -58,6 +76,8 @@ namespace HandCodedFluentCUIT.ProjectService
 
         internal ProjectGanttWindow AddProject()
         {
+            m_bw.MicrosoftDynamics365Document.MainContentAreaFrame.ProjectGanttDocument.WaitForControlReady(10000);
+
             // Click 'Expand all' pane
             Mouse.Click(m_expandAllPane, new Point(24, 7));
 
@@ -99,10 +119,57 @@ namespace HandCodedFluentCUIT.ProjectService
             return this;
         }
 
-        internal bool IsItemStatusPaneEqual()
+        internal bool IsItemStatusPaneEqual(string text)
         {
-            //return m_itemStatusPane.InnerText == "+";
-            return true;
+             //return m_itemStatusPane.InnerText == "+";
+           return true;
+        }
+
+        internal ProjectGanttWindow SaveChanges()
+        {
+            m_bw.MicrosoftDynamics365Document.MainContentAreaFrame.ProjectGanttDocument.WaitForControlReady(10000);
+
+            Mouse.Click(m_saveChangesPane, new Point(6, 3));
+
+            return this;
+        }
+
+        internal ProjectGanttWindow AddTask()
+        {
+            // Right-Click 'New project #1' pane
+            Mouse.Click(m_newProjectPane, MouseButtons.Right, ModifierKeys.None, new Point(32, 13));
+
+            // Click 'Add child task' pane
+            Mouse.Click(m_addChildTaskPane, new Point(40, 10));
+
+            // Type 'Task #1' in text box
+            m_projectItemEdit.Text = "Task #1";
+
+            // Click pane
+            Mouse.Click(m_resourceCategoryPane, new Point(6, 13));
+
+            // Click custom control
+            //            Mouse.Click(uIItemCustom1, new Point(11, 12));
+
+            // Type 'developer' in text box
+            m_itemEdit1.Text = "developer";
+
+            // Click text box
+//            Mouse.Click(uIItemEdit1, new Point(206, 19));
+
+            // Click custom control
+            Mouse.Click(m_itemCustom1, new Point(3, 6));
+
+            // Double-Click 'Developer (Junior)' pane
+            Mouse.DoubleClick(m_developerJuniorPane, new Point(37, 6));
+
+            // Click 'Add' button
+            Mouse.Click(m_addButton, new Point(44, 16));
+
+            // Click 'OK' label
+            Mouse.Click(m_projectOkLabel, new Point(3, 6));
+
+            return this;
         }
     }
 }

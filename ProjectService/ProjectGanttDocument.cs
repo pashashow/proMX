@@ -47,6 +47,18 @@ namespace HandCodedFluentCUIT.ProjectService
             }
         }
 
+        public SaveButton SaveButton
+        {
+            get
+            {
+                if (m_saveButton == null)
+                {
+                    m_saveButton = new SaveButton(this);
+                }
+                return m_saveButton;
+            }
+        }
+
         public GanttBasePane GanttBasePane
         {
             get
@@ -71,6 +83,18 @@ namespace HandCodedFluentCUIT.ProjectService
             }
         }
 
+        public AddChildTaskCustom AddChildTaskCustom
+        {
+            get
+            {
+                if (m_addChildTaskCustom == null)
+                {
+                    m_addChildTaskCustom = new AddChildTaskCustom(this);
+                }
+                return m_addChildTaskCustom;
+            }
+        }
+
         public PromxCreateNewProjectPane PromxCreateNewProjPane
         {
             get
@@ -92,6 +116,54 @@ namespace HandCodedFluentCUIT.ProjectService
                     mUIPromx_create_new_proPane1 = new UIPromx_create_new_proPane1(this);
                 }
                 return mUIPromx_create_new_proPane1;
+            }
+        }
+
+        public EditProjectTaskWindowPane EditProjectTaskWindowPane
+        {
+            get
+            {
+                if (m_editProjectTaskWindowPane == null)
+                {
+                    m_editProjectTaskWindowPane = new EditProjectTaskWindowPane(this);
+                }
+                return m_editProjectTaskWindowPane;
+            }
+        }
+
+        public EditProjectTaskResourceRolePane EditProjectTaskResourceRolePane
+        {
+            get
+            {
+                if (m_editProjectTaskResourceRolePane == null)
+                {
+                    m_editProjectTaskResourceRolePane = new EditProjectTaskResourceRolePane(this);
+                }
+                return m_editProjectTaskResourceRolePane;
+            }
+        }
+
+        public HtmlDiv DeveloperJuniorPane
+        {
+            get
+            {
+                if (m_developerJuniorPane == null)
+                {
+                    m_developerJuniorPane = new HtmlDiv(this);
+                    #region Search Criteria
+                    m_developerJuniorPane.SearchProperties[HtmlDiv.PropertyNames.Id] = null;
+                    m_developerJuniorPane.SearchProperties[HtmlDiv.PropertyNames.Name] = null;
+                    m_developerJuniorPane.FilterProperties[HtmlDiv.PropertyNames.InnerText] = "Developer (Junior)";
+                    m_developerJuniorPane.FilterProperties[HtmlDiv.PropertyNames.Title] = null;
+                    m_developerJuniorPane.FilterProperties[HtmlDiv.PropertyNames.Class] = null;
+                    m_developerJuniorPane.FilterProperties[HtmlDiv.PropertyNames.ControlDefinition] = "style=\"width: 150px; height: 25px; overflow: hidden; margin-right: -3px; display:" +
+                                                                                                            " inline-block; -ms-text-overflow: ellipsis;\" data-bind=\"css:{hovered:Hovered,sel" +
+                                                                                                            "ectRow:Selected}\"";
+                    m_developerJuniorPane.FilterProperties[HtmlDiv.PropertyNames.TagInstance] = "298";
+                    m_developerJuniorPane.WindowTitles.Add("Microsoft Dynamics 365");
+                    #endregion
+                }
+                return m_developerJuniorPane;
             }
         }
 
@@ -308,6 +380,27 @@ namespace HandCodedFluentCUIT.ProjectService
             }
         }
 
+        public HtmlCustom ItemCustom1
+        {
+            get
+            {
+                if (m_itemCustom1 == null)
+                {
+                    m_itemCustom1 = new HtmlCustom(this);
+                    #region Search Criteria
+                    m_itemCustom1.SearchProperties["TagName"] = "A";
+                    m_itemCustom1.SearchProperties["Id"] = null;
+                    m_itemCustom1.SearchProperties[UITestControl.PropertyNames.Name] = null;
+                    m_itemCustom1.FilterProperties["Class"] = "k-icon k-i-search lookup-searchbutton";
+                    m_itemCustom1.FilterProperties["ControlDefinition"] = "class=\"k-icon k-i-search lookup-searchbu";
+                    m_itemCustom1.FilterProperties["TagInstance"] = "26";
+                    m_itemCustom1.WindowTitles.Add("Microsoft Dynamics 365");
+                    #endregion
+                }
+                return m_itemCustom1;
+            }
+        }
+
         public HtmlDiv UserNamePane
         {
             get
@@ -341,15 +434,25 @@ namespace HandCodedFluentCUIT.ProjectService
 
         private ExpandAllButton m_expandAllButton;
 
+        private SaveButton m_saveButton;
+
         private GanttBasePane m_ganttBasePane;
 
         private PromxCreateNewProjectPane m_promxCreateNewProjectPane;
 
         private UIPromx_create_new_proPane1 mUIPromx_create_new_proPane1;
 
+        private EditProjectTaskWindowPane m_editProjectTaskWindowPane;
+
+        private EditProjectTaskResourceRolePane m_editProjectTaskResourceRolePane;
+
+        private HtmlDiv m_developerJuniorPane;
+
         private HtmlCustom m_chargeableCustom;
 
         private AddNewProjectCustom m_addNewProjectCustom;
+
+        private AddChildTaskCustom m_addChildTaskCustom;
 
         private HtmlSpan m_selectPane;
 
@@ -366,6 +469,8 @@ namespace HandCodedFluentCUIT.ProjectService
         private HtmlEdit m_itemEdit;
 
         private HtmlCustom m_itemCustom;
+
+        private HtmlCustom m_itemCustom1;
 
         private HtmlDiv m_userNamePane;
 

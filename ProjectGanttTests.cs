@@ -1,8 +1,12 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Drawing;
+using System.Windows.Forms;
+using System.Windows.Input;
 using HandCodedFluentCUIT.Common;
 using HandCodedFluentCUIT.ProjectService;
 using Microsoft.VisualStudio.TestTools.UITesting;
+using Microsoft.VisualStudio.TestTools.UITesting.HtmlControls;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 
@@ -26,12 +30,16 @@ namespace HandCodedFluentCUIT
             bw.CloseOnPlaybackCleanup = false;
 
             bw.NavigateToUrl(new Uri("https://promxtest20180312.crm4.dynamics.com/"));
+
+            MicrosoftDynamics365Window bw1 = new MicrosoftDynamics365Window();
+            bw1.CopyFrom(BrowserWindow.FromProcess(_process));
+            new MainAppWindow(bw1).GoToProjectGantt();
         }
 
         [ClassCleanup]
         public static void ClassCleanUpMethod()
         {
-            if (!Playback.IsInitialized)
+/*            if (!Playback.IsInitialized)
             {
                 Playback.Initialize();
             }
@@ -40,7 +48,7 @@ namespace HandCodedFluentCUIT
             bw.Close();
 
             Playback.Cleanup();
-        }
+*/        }
 
         [TestMethod]
         public void ProjectGantt_AccountListContainsTestAccount_Geeve()
@@ -64,7 +72,26 @@ namespace HandCodedFluentCUIT
             bw.CopyFrom(BrowserWindow.FromProcess(_process));
             Assert.IsTrue(new ProjectGanttWindow(bw)
                             .AddProject()
-                            .IsItemStatusPaneEqual());
+                            .IsItemStatusPaneEqual("+"));
+        }
+
+        [TestMethod]
+        public void SaveChanges()
+        {
+            MicrosoftDynamics365Window bw = new MicrosoftDynamics365Window();
+            bw.CopyFrom(BrowserWindow.FromProcess(_process));
+            Assert.IsTrue(new ProjectGanttWindow(bw)
+                .SaveChanges()
+                .IsItemStatusPaneEqual("~"));
+        }
+
+        [TestMethod]
+        public void AddTask()
+        {
+            MicrosoftDynamics365Window bw = new MicrosoftDynamics365Window();
+            bw.CopyFrom(BrowserWindow.FromProcess(_process));
+            new ProjectGanttWindow(bw)
+                .AddTask();
         }
 
         #region Additional test attributes
