@@ -58,7 +58,7 @@
     <Compile Include="Common\AddnewprojectCustom.cs" />
     <Compile Include="ProjectService\AddChildTaskCustom.cs" />
     <Compile Include="ProjectService\EditProjectTaskWindowPane.cs" />
-    <Compile Include="ProjectService\SaveButton.cs" />
+    <Compile Include="ProjectService\ToolBar\SaveButton.cs" />
     <Compile Include="ProjectService\EditProjectTaskResourceRolePane.cs" />
     <Compile Include="ProjectService\GanttBasePane.cs" />
     <Compile Include="Common\DashboardsSalesActivDocument.cs" />
@@ -69,13 +69,13 @@
     <Compile Include="ProjectService\PromxCreateNewProjectPane.cs" />
     <Compile Include="Common\TabHomePane.cs" />
     <Compile Include="Dialogs\FilterWindow.cs" />
-    <Compile Include="ProjectService\ExpandAllButton.cs" />
+    <Compile Include="ProjectService\ToolBar\ExpandAllButton.cs" />
     <Compile Include="ProjectService\FilterButtonOnGantt.cs" />
     <Compile Include="ProjectService\ProjectGanttDocument.cs" />
     <Compile Include="ProjectService\ProjectGanttWindow.cs" />
     <Compile Include="Common\ToolBar.cs" />
     <Compile Include="ProjectGanttTests.cs" />
-    <Compile Include="ProjectService\RefreshButton.cs" />
+    <Compile Include="ProjectService\ToolBar\RefreshButton.cs" />
     <Compile Include="ProjectService\UIPromx_create_new_proPane1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

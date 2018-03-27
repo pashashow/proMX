@@ -1,4 +1,5 @@
 ﻿using HandCodedFluentCUIT.Common;
+using HandCodedFluentCUIT.ProjectService.ToolBar;
 using Microsoft.VisualStudio.TestTools.UITesting;
 using Microsoft.VisualStudio.TestTools.UITesting.HtmlControls;
 
