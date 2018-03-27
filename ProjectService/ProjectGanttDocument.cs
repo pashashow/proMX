@@ -1,4 +1,5 @@
 ﻿using HandCodedFluentCUIT.Common;
+using HandCodedFluentCUIT.ProjectService.Filter;
 using HandCodedFluentCUIT.ProjectService.ToolBar;
 using Microsoft.VisualStudio.TestTools.UITesting;
 using Microsoft.VisualStudio.TestTools.UITesting.HtmlControls;
@@ -24,15 +25,15 @@ namespace HandCodedFluentCUIT.ProjectService
         }
 
         #region Properties
-        public FilterButtonOnGantt FilterButtonOnGantt
+        public FilterButton FilterButton
         {
             get
             {
-                if (m_filterButtonOnGantt == null)
+                if (m_filterButton == null)
                 {
-                    m_filterButtonOnGantt = new FilterButtonOnGantt(this);
+                    m_filterButton = new FilterButton(this);
                 }
-                return m_filterButtonOnGantt;
+                return m_filterButton;
             }
         }
 
@@ -431,7 +432,7 @@ namespace HandCodedFluentCUIT.ProjectService
         #region Fields
         private HtmlSpan m_projectSelectPane;
 
-        private FilterButtonOnGantt m_filterButtonOnGantt;
+        private FilterButton m_filterButton;
 
         private ExpandAllButton m_expandAllButton;
 

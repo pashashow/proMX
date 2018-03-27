@@ -70,7 +70,7 @@
     <Compile Include="Common\TabHomePane.cs" />
     <Compile Include="Dialogs\FilterWindow.cs" />
     <Compile Include="ProjectService\ToolBar\ExpandAllButton.cs" />
-    <Compile Include="ProjectService\FilterButtonOnGantt.cs" />
+    <Compile Include="ProjectService\Filter\FilterButtonOnGantt.cs" />
     <Compile Include="ProjectService\ProjectGanttDocument.cs" />
     <Compile Include="ProjectService\ProjectGanttWindow.cs" />
     <Compile Include="Common\ToolBar.cs" />

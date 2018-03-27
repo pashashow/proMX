@@ -1,12 +1,12 @@
 ﻿using Microsoft.VisualStudio.TestTools.UITesting;
 using Microsoft.VisualStudio.TestTools.UITesting.HtmlControls;
 
-namespace HandCodedFluentCUIT.ProjectService
+namespace HandCodedFluentCUIT.ProjectService.Filter
 {
-    public class FilterButtonOnGantt : HtmlButton
+    public class FilterButton : HtmlButton
     {
 
-        public FilterButtonOnGantt(UITestControl searchLimitContainer) :
+        public FilterButton(UITestControl searchLimitContainer) :
                 base(searchLimitContainer)
         {
             #region Search Criteria

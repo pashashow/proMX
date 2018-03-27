@@ -40,7 +40,7 @@ namespace HandCodedFluentCUIT.ProjectService
             m_bw = bw;
             ProjectGanttDocument doc = m_bw.MicrosoftDynamics365Document.MainContentAreaFrame.ProjectGanttDocument;
 
-            m_filterButton = doc.FilterButtonOnGantt.ItemPane;
+            m_filterButton = doc.FilterButton.ItemPane;
             m_expandAllPane = doc.ExpandAllButton.ExpandAllPane;
             m_saveChangesPane = doc.SaveButton.SavePane;
             m_geveePane = doc.GanttBasePane.GeveePane;
