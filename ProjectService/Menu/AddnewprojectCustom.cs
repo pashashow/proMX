@@ -1,7 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UITesting;
 using Microsoft.VisualStudio.TestTools.UITesting.HtmlControls;
 
-namespace HandCodedFluentCUIT.Common
+namespace HandCodedFluentCUIT.ProjectService.Menu
 {
     public class AddNewProjectCustom : HtmlCustom
     {

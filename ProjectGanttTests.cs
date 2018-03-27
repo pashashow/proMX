@@ -1,12 +1,8 @@
 ﻿using System;
 using System.Diagnostics;
-using System.Drawing;
-using System.Windows.Forms;
-using System.Windows.Input;
 using HandCodedFluentCUIT.Common;
 using HandCodedFluentCUIT.ProjectService;
 using Microsoft.VisualStudio.TestTools.UITesting;
-using Microsoft.VisualStudio.TestTools.UITesting.HtmlControls;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 
@@ -24,16 +20,16 @@ namespace HandCodedFluentCUIT
         public static void ClassInitMethod(TestContext testContext)
         {
             Playback.Initialize();
-
             var bw = BrowserWindow.Launch(new Uri("about:blank"));
             _process = bw.Process;
             bw.CloseOnPlaybackCleanup = false;
 
             bw.NavigateToUrl(new Uri("https://promxtest20180312.crm4.dynamics.com/"));
-
+/*
             MicrosoftDynamics365Window bw1 = new MicrosoftDynamics365Window();
             bw1.CopyFrom(BrowserWindow.FromProcess(_process));
             new MainAppWindow(bw1).GoToProjectGantt();
+*/
         }
 
         [ClassCleanup]
@@ -94,6 +90,25 @@ namespace HandCodedFluentCUIT
                 .AddTask();
         }
 
+        [TestMethod]
+        public void DeleteTask()
+        {
+            MicrosoftDynamics365Window bw = new MicrosoftDynamics365Window();
+            bw.CopyFrom(BrowserWindow.FromProcess(_process));
+            new ProjectGanttWindow(bw)
+                .ColapseAll()
+                .DeleteTask();
+        }
+
+        [TestMethod]
+        public void DeleteeProject()
+        {
+            MicrosoftDynamics365Window bw = new MicrosoftDynamics365Window();
+            bw.CopyFrom(BrowserWindow.FromProcess(_process));
+            new ProjectGanttWindow(bw)
+                .ColapseAll()
+                .DeleteProject();
+        }
         #region Additional test attributes
 
         // You can use the following additional attributes as you write your tests:

@@ -55,9 +55,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account\LoginWindow.cs" />
-    <Compile Include="Common\AddnewprojectCustom.cs" />
-    <Compile Include="ProjectService\AddChildTaskCustom.cs" />
+    <Compile Include="ProjectService\Menu\AddnewprojectCustom.cs" />
+    <Compile Include="ProjectService\Menu\AddChildTaskCustom.cs" />
     <Compile Include="ProjectService\EditProjectTaskWindowPane.cs" />
+    <Compile Include="ProjectService\Menu\DeleteCustom.cs" />
+    <Compile Include="ProjectService\ToolBar\CollapseAllButton.cs" />
     <Compile Include="ProjectService\ToolBar\SaveButton.cs" />
     <Compile Include="ProjectService\EditProjectTaskResourceRolePane.cs" />
     <Compile Include="ProjectService\GanttBasePane.cs" />

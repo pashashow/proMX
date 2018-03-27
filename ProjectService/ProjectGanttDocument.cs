@@ -1,5 +1,6 @@
 ﻿using HandCodedFluentCUIT.Common;
 using HandCodedFluentCUIT.ProjectService.Filter;
+using HandCodedFluentCUIT.ProjectService.Menu;
 using HandCodedFluentCUIT.ProjectService.ToolBar;
 using Microsoft.VisualStudio.TestTools.UITesting;
 using Microsoft.VisualStudio.TestTools.UITesting.HtmlControls;
@@ -37,18 +38,6 @@ namespace HandCodedFluentCUIT.ProjectService
             }
         }
 
-        public ExpandAllButton ExpandAllButton
-        {
-            get
-            {
-                if (m_expandAllButton == null)
-                {
-                    m_expandAllButton = new ExpandAllButton(this);
-                }
-                return m_expandAllButton;
-            }
-        }
-
         public SaveButton SaveButton
         {
             get
@@ -61,6 +50,30 @@ namespace HandCodedFluentCUIT.ProjectService
             }
         }
 
+        public ExpandAllButton ExpandAllButton
+        {
+            get
+            {
+                if (m_expandAllButton == null)
+                {
+                    m_expandAllButton = new ExpandAllButton(this);
+                }
+                return m_expandAllButton;
+            }
+        }
+
+        public CollapseAllButton CollapseAllButton
+        {
+            get
+            {
+                if ((this.m_collapseAllButton == null))
+                {
+                    this.m_collapseAllButton = new CollapseAllButton(this);
+                }
+                return this.m_collapseAllButton;
+            }
+        }
+
         public GanttBasePane GanttBasePane
         {
             get
@@ -70,6 +83,18 @@ namespace HandCodedFluentCUIT.ProjectService
                     m_ganttBasePane = new GanttBasePane(this);
                 }
                 return m_ganttBasePane;
+            }
+        }
+
+        public DeleteCustom DeleteCustom
+        {
+            get
+            {
+                if (m_deleteCustom == null)
+                {
+                    m_deleteCustom = new DeleteCustom(this);
+                }
+                return m_deleteCustom;
             }
         }
 
@@ -434,11 +459,15 @@ namespace HandCodedFluentCUIT.ProjectService
 
         private FilterButton m_filterButton;
 
-        private ExpandAllButton m_expandAllButton;
-
         private SaveButton m_saveButton;
 
+        private ExpandAllButton m_expandAllButton;
+
+        private CollapseAllButton m_collapseAllButton;
+
         private GanttBasePane m_ganttBasePane;
+
+        private DeleteCustom m_deleteCustom;
 
         private PromxCreateNewProjectPane m_promxCreateNewProjectPane;
 

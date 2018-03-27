@@ -12,8 +12,9 @@ namespace HandCodedFluentCUIT.ProjectService
     {
         private readonly MicrosoftDynamics365Window m_bw;
         private readonly HtmlSpan m_filterButton;
-        private readonly HtmlSpan m_expandAllPane;
-        private readonly HtmlSpan m_saveChangesPane;
+        private readonly HtmlSpan m_saveChangesButtonPane;
+        private readonly HtmlSpan m_expandAllButtonPane;
+        private readonly HtmlSpan m_collapseAllButtonPane;
         private readonly HtmlSpan m_geveePane;
         private readonly HtmlSpan m_addNewProjectPane;
         private readonly HtmlSpan m_newProjectPane;
@@ -33,6 +34,11 @@ namespace HandCodedFluentCUIT.ProjectService
         private readonly HtmlDiv m_userNamePane;
         private readonly HtmlButton m_addButton;
 
+        private readonly HtmlSpan m_expandProjectFirstLevel;
+        private readonly HtmlSpan m_expandProjectSecondLevel;
+        private readonly HtmlSpan m_task1Pane;
+        private readonly HtmlSpan m_deleteMenuPane;
+
         private readonly HtmlButton m_OKButton;
          
         public ProjectGanttWindow(MicrosoftDynamics365Window bw)
@@ -41,8 +47,9 @@ namespace HandCodedFluentCUIT.ProjectService
             ProjectGanttDocument doc = m_bw.MicrosoftDynamics365Document.MainContentAreaFrame.ProjectGanttDocument;
 
             m_filterButton = doc.FilterButton.ItemPane;
-            m_expandAllPane = doc.ExpandAllButton.ExpandAllPane;
-            m_saveChangesPane = doc.SaveButton.SavePane;
+            m_saveChangesButtonPane = doc.SaveButton.SavePane;
+            m_expandAllButtonPane = doc.ExpandAllButton.ExpandAllPane;
+            m_collapseAllButtonPane = doc.CollapseAllButton.CollapseallPane;
             m_geveePane = doc.GanttBasePane.GeveePane;
             m_addNewProjectPane = doc.AddNewProjectCustom.AddnewprojectPane;
             m_newProjectPane = doc.GanttBasePane.NewProjectPane;
@@ -63,6 +70,11 @@ namespace HandCodedFluentCUIT.ProjectService
             m_itemCustom1 = doc.ItemCustom1;
             m_userNamePane = doc.UserNamePane;
             m_addButton = doc.AddButton;
+
+            m_expandProjectFirstLevel = doc.GanttBasePane.ExpandFirstLevelItemPane;
+            m_expandProjectSecondLevel = doc.GanttBasePane.ExpandSecondLevelItemPane;
+            m_task1Pane = doc.GanttBasePane.Task1Pane;
+            m_deleteMenuPane = doc.DeleteCustom.DeletePane;
         }
 
         internal FilterWindow OpenFilter()
@@ -79,7 +91,7 @@ namespace HandCodedFluentCUIT.ProjectService
             m_bw.MicrosoftDynamics365Document.MainContentAreaFrame.ProjectGanttDocument.WaitForControlReady(10000);
 
             // Click 'Expand all' pane
-            Mouse.Click(m_expandAllPane, new Point(24, 7));
+            Mouse.Click(m_expandAllButtonPane, new Point(24, 7));
 
             // Right-Click 'Gevee' pane
             Mouse.Click(m_geveePane, MouseButtons.Right, ModifierKeys.None, new Point(27, 14));
@@ -129,7 +141,7 @@ namespace HandCodedFluentCUIT.ProjectService
         {
             m_bw.MicrosoftDynamics365Document.MainContentAreaFrame.ProjectGanttDocument.WaitForControlReady(10000);
 
-            Mouse.Click(m_saveChangesPane, new Point(6, 3));
+            Mouse.Click(m_saveChangesButtonPane, new Point(6, 3));
 
             return this;
         }
@@ -148,14 +160,8 @@ namespace HandCodedFluentCUIT.ProjectService
             // Click pane
             Mouse.Click(m_resourceCategoryPane, new Point(6, 13));
 
-            // Click custom control
-            //            Mouse.Click(uIItemCustom1, new Point(11, 12));
-
             // Type 'developer' in text box
             m_itemEdit1.Text = "developer";
-
-            // Click text box
-//            Mouse.Click(uIItemEdit1, new Point(206, 19));
 
             // Click custom control
             Mouse.Click(m_itemCustom1, new Point(3, 6));
@@ -171,5 +177,59 @@ namespace HandCodedFluentCUIT.ProjectService
 
             return this;
         }
+
+        internal ProjectGanttWindow ColapseAll()
+        {
+            m_bw.MicrosoftDynamics365Document.MainContentAreaFrame.ProjectGanttDocument.WaitForControlReady(10000);
+
+            Mouse.Click(m_collapseAllButtonPane, new Point(3, 3));
+
+            return this;
+        }
+
+        internal ProjectGanttWindow DeleteTask()
+        {
+            m_bw.MicrosoftDynamics365Document.MainContentAreaFrame.ProjectGanttDocument.WaitForControlReady(10000);
+
+            // Click 'Expand first level of tree' pane
+            Mouse.Click(m_expandProjectFirstLevel, new Point(7, 7));
+
+            // Right-Click 'New project #1' pane
+            Mouse.Click(m_newProjectPane, new Point(48, 14));
+
+            // Click 'Expand second level of tree' pane
+            Mouse.Click(m_expandProjectSecondLevel, new Point(7, 7));
+
+            // Click 'Task' pane
+            Mouse.Click(m_task1Pane, MouseButtons.Right, ModifierKeys.None, new Point(8, 15));
+
+            // Click 'Delete' pane
+            Mouse.Click(m_deleteMenuPane, new Point(33, 15));
+
+            // Click 'Save' pane
+            Mouse.Click(m_saveChangesButtonPane, new Point(7, 8));
+
+            return this;
+        }
+
+        internal ProjectGanttWindow DeleteProject()
+        {
+            m_bw.MicrosoftDynamics365Document.MainContentAreaFrame.ProjectGanttDocument.WaitForControlReady(10000);
+
+            // Click 'Expand first level of tree' pane
+            Mouse.Click(m_expandProjectFirstLevel, new Point(7, 7));
+
+            // Right-Click 'New project #1' pane
+            Mouse.Click(m_newProjectPane, MouseButtons.Right, ModifierKeys.None, new Point(48, 14));
+            
+            // Click 'Delete' pane
+            Mouse.Click(m_deleteMenuPane, new Point(33, 15));
+
+            // Click 'Save' pane
+            Mouse.Click(m_saveChangesButtonPane, new Point(7, 8));
+
+            return this;
+        }
+
     }
 }
