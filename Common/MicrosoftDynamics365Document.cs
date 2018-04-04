@@ -10,13 +10,11 @@ namespace HandCodedFluentCUIT.Common
             base(searchLimitContainer)
         {
             #region Search Criteria
-            this.SearchProperties[HtmlDocument.PropertyNames.Id] = null;
-            this.SearchProperties[HtmlDocument.PropertyNames.RedirectingPage] = "False";
-            this.SearchProperties[HtmlDocument.PropertyNames.FrameDocument] = "False";
-            this.FilterProperties[HtmlDocument.PropertyNames.Title] = "Microsoft Dynamics 365";
-            this.FilterProperties[HtmlDocument.PropertyNames.AbsolutePath] = "/main.aspx";
-//            this.FilterProperties[HtmlDocument.PropertyNames.PageUrl] = "https://promxtest20180312.crm4.dynamics.com/main.aspx#678509312";
-            this.WindowTitles.Add("Microsoft Dynamics 365");
+            SearchProperties[HtmlControl.PropertyNames.Id] = null;
+            SearchProperties[PropertyNames.RedirectingPage] = "False";
+            SearchProperties[PropertyNames.FrameDocument] = "False";
+            //this.FilterProperties[HtmlDocument.PropertyNames.Title] = "Microsoft Dynamics 365";
+            WindowTitles.Add("Microsoft Dynamics 365");
             #endregion
         }
 
@@ -25,11 +23,11 @@ namespace HandCodedFluentCUIT.Common
         {
             get
             {
-                if ((this.m_mainContentAreaFrame == null))
+                if (m_mainContentAreaFrame == null)
                 {
-                    this.m_mainContentAreaFrame = new MainContentAreaFrame(this);
+                    m_mainContentAreaFrame = new MainContentAreaFrame(this);
                 }
-                return this.m_mainContentAreaFrame;
+                return m_mainContentAreaFrame;
             }
         }
         #endregion

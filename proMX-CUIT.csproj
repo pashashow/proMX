@@ -75,7 +75,6 @@
     <Compile Include="ProjectService\Filter\FilterButtonOnGantt.cs" />
     <Compile Include="ProjectService\ProjectGanttDocument.cs" />
     <Compile Include="ProjectService\ProjectGanttWindow.cs" />
-    <Compile Include="Common\ToolBar.cs" />
     <Compile Include="ProjectGanttTests.cs" />
     <Compile Include="ProjectService\ToolBar\RefreshButton.cs" />
     <Compile Include="ProjectService\UIPromx_create_new_proPane1.cs" />

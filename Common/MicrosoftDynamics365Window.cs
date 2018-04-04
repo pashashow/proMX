@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UITesting;
+﻿using System;
+using Microsoft.VisualStudio.TestTools.UITesting;
 
 namespace HandCodedFluentCUIT.Common
 {
@@ -7,15 +8,15 @@ namespace HandCodedFluentCUIT.Common
         public MicrosoftDynamics365Window()
         {
             #region Search Criteria
-            this.SearchProperties[UITestControl.PropertyNames.Name] = "Microsoft Dynamics 365";
-            this.SearchProperties[UITestControl.PropertyNames.ClassName] = "IEFrame";
-            this.WindowTitles.Add("Microsoft Dynamics 365");
+            SearchProperties[PropertyNames.Name] = "Microsoft Dynamics 365";
+//            SearchProperties[PropertyNames.ClassName] = "IEFrame";
+            WindowTitles.Add("Microsoft Dynamics 365");
             #endregion
         }
 
-        public void LaunchUrl(System.Uri url)
+        public void LaunchUrl(Uri url)
         {
-            this.CopyFrom(BrowserWindow.Launch(url));
+            CopyFrom(Launch(url));
         }
 
         #region Properties
@@ -23,11 +24,11 @@ namespace HandCodedFluentCUIT.Common
         {
             get
             {
-                if (this.m_mMicrosoftDynamics365Document == null)
+                if (m_mMicrosoftDynamics365Document == null)
                 {
-                    this.m_mMicrosoftDynamics365Document = new MicrosoftDynamics365Document(this);
+                    m_mMicrosoftDynamics365Document = new MicrosoftDynamics365Document(this);
                 }
-                return this.m_mMicrosoftDynamics365Document;
+                return m_mMicrosoftDynamics365Document;
             }
         }
 
@@ -35,11 +36,11 @@ namespace HandCodedFluentCUIT.Common
         {
             get
             {
-                if (this.m_dashboardsSalesActivDocument == null)
+                if (m_dashboardsSalesActivDocument == null)
                 {
-                    this.m_dashboardsSalesActivDocument = new DashboardsSalesActivDocument(this);
+                    m_dashboardsSalesActivDocument = new DashboardsSalesActivDocument(this);
                 }
-                return this.m_dashboardsSalesActivDocument;
+                return m_dashboardsSalesActivDocument;
             }
         }
         #endregion

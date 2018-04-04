@@ -23,8 +23,9 @@ namespace HandCodedFluentCUIT.Common
 
         public ProjectGanttWindow GoToProjectGantt()
         {
+            m_bw.DashboardsSalesActivDocumen.WaitForControlReady(30000);
             // Click 'Sales' link
-            Mouse.Click(m_salesHyperlink, new Point(13, 24));
+            Mouse.Click(m_salesHyperlink);
 
             // Click 'Project Service' link
             Mouse.Click(m_projectServiceHyperlink, new Point(64, 25));

@@ -79,7 +79,7 @@ namespace HandCodedFluentCUIT.ProjectService
 
         internal FilterWindow OpenFilter()
         {
-            m_bw.MicrosoftDynamics365Document.MainContentAreaFrame.ProjectGanttDocument.WaitForControlReady(10000);
+            m_bw.MicrosoftDynamics365Document.MainContentAreaFrame.ProjectGanttDocument.WaitForControlReady(60000);
 
             Mouse.Click(m_filterButton, new Point(2, 2));
 

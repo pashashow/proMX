@@ -16,11 +16,7 @@ namespace HandCodedFluentCUIT.ProjectService
             SearchProperties[HtmlDocument.PropertyNames.Id] = null;
             SearchProperties[HtmlDocument.PropertyNames.RedirectingPage] = "False";
             SearchProperties[HtmlDocument.PropertyNames.FrameDocument] = "True";
-            FilterProperties[HtmlDocument.PropertyNames.Title] = "Project Gantt";
-            FilterProperties[HtmlDocument.PropertyNames.AbsolutePath] = "/%7B636574358220000621%7D/WebResources/prorm_/Apps/Gantt.SMB/index.html";
-            FilterProperties[HtmlDocument.PropertyNames.PageUrl] = "https://promxtest20180312.crm4.dynamics.com/%7B636574358220000621%7D/WebResources" +
-                                                                        "/prorm_/Apps/Gantt.SMB/index.html?orglcid=1033&orgname=org6980cb4f&pagemode=ifra" +
-                                                                        "me&sitemappath=proRM%7cprorm_project%7cprorm_gantt&userlcid=1033";
+//            SearchProperties[HtmlDocument.PropertyNames.Title] = "Project Gantt";
             WindowTitles.Add("Microsoft Dynamics 365");
             #endregion
         }
@@ -216,21 +212,19 @@ namespace HandCodedFluentCUIT.ProjectService
             }
         }
 
-        public HtmlSpan SelectPane
+        public HtmlEdit SelectPane
         {
             get
             {
                 if (m_selectPane == null)
                 {
-                    m_selectPane = new HtmlSpan(this);
+                    m_selectPane = new HtmlEdit(this);
                     #region Search Criteria
-                    m_selectPane.SearchProperties[HtmlDiv.PropertyNames.Id] = null;
-                    m_selectPane.SearchProperties[HtmlDiv.PropertyNames.Name] = null;
-                    m_selectPane.FilterProperties[HtmlDiv.PropertyNames.InnerText] = "select";
-                    m_selectPane.FilterProperties[HtmlDiv.PropertyNames.Title] = null;
-                    m_selectPane.FilterProperties[HtmlDiv.PropertyNames.Class] = "k-icon k-i-arrow-s";
-                    m_selectPane.FilterProperties[HtmlDiv.PropertyNames.ControlDefinition] = "class=\"k-icon k-i-arrow-s\" unselectable=\"on\"";
-                    m_selectPane.FilterProperties[HtmlDiv.PropertyNames.TagInstance] = "233";
+                    //m_selectPane.SearchProperties[HtmlControl.PropertyNames.Id] = "lookup_search_for";
+                    //m_selectPane.SearchProperties[HtmlDiv.PropertyNames.Name] = null;
+                    //m_selectPane.FilterProperties[HtmlDiv.PropertyNames.InnerText] = "select";
+                    m_selectPane.FilterProperties[HtmlControl.PropertyNames.Class] = "k-dropdown-wrap";
+//                    m_selectPane.FilterProperties[HtmlControl.PropertyNames.ControlDefinition] = "class=\"k-dropdown-wrap\" aria-activedescendant=\"5ee78d95-8597-48a0-bf3c-5cd278fd6769\"";
                     m_selectPane.WindowTitles.Add("Microsoft Dynamics 365");
                     #endregion
                 }
@@ -238,25 +232,21 @@ namespace HandCodedFluentCUIT.ProjectService
             }
         }
 
-        public HtmlSpan ProjectSelectPane
+        public HtmlEdit SearchEdit
         {
             get
             {
-                if (m_projectSelectPane == null)
+                if (m_selectPane == null)
                 {
-                    m_projectSelectPane = new HtmlSpan(this);
+                    m_selectPane = new HtmlEdit(this);
                     #region Search Criteria
-                    m_projectSelectPane.SearchProperties[HtmlDiv.PropertyNames.Id] = null;
-                    m_projectSelectPane.SearchProperties[HtmlDiv.PropertyNames.Name] = null;
-                    m_projectSelectPane.FilterProperties[HtmlDiv.PropertyNames.InnerText] = "Project\r\nselect";
-                    m_projectSelectPane.FilterProperties[HtmlDiv.PropertyNames.Title] = null;
-                    m_projectSelectPane.FilterProperties[HtmlDiv.PropertyNames.Class] = "k-dropdown-wrap k-state-default";
-                    m_projectSelectPane.FilterProperties[HtmlDiv.PropertyNames.ControlDefinition] = "class=\"k-dropdown-wrap k-state-default\" unselectable=\"on\"";
-                    m_projectSelectPane.FilterProperties[HtmlDiv.PropertyNames.TagInstance] = "230";
-                    m_projectSelectPane.WindowTitles.Add("Microsoft Dynamics 365");
+                    m_selectPane.SearchProperties[HtmlEdit.PropertyNames.Id] = "lookup_search_for";
+                    //m_selectPane.FilterProperties[HtmlDiv.PropertyNames.InnerText] = "select";
+//                    m_selectPane.FilterProperties[HtmlEdit.PropertyNames.Class] = "k-textbox";
+                    m_selectPane.WindowTitles.Add("Microsoft Dynamics 365");
                     #endregion
                 }
-                return m_projectSelectPane;
+                return m_searchEdit;
             }
         }
 
@@ -451,12 +441,9 @@ namespace HandCodedFluentCUIT.ProjectService
                 return m_userNamePane;
             }
         }
-
         #endregion
 
         #region Fields
-        private HtmlSpan m_projectSelectPane;
-
         private FilterButton m_filterButton;
 
         private SaveButton m_saveButton;
@@ -485,7 +472,9 @@ namespace HandCodedFluentCUIT.ProjectService
 
         private AddChildTaskCustom m_addChildTaskCustom;
 
-        private HtmlSpan m_selectPane;
+        private HtmlEdit m_selectPane;
+
+        private HtmlEdit m_searchEdit;
 
         private HtmlCustom m_accountCustom;
 
@@ -504,7 +493,6 @@ namespace HandCodedFluentCUIT.ProjectService
         private HtmlCustom m_itemCustom1;
 
         private HtmlDiv m_userNamePane;
-
         #endregion
     }
 }
