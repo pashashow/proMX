@@ -1,18 +1,16 @@
 ﻿using Microsoft.VisualStudio.TestTools.UITesting;
 using Microsoft.VisualStudio.TestTools.UITesting.HtmlControls;
 
-namespace HandCodedFluentCUIT.Common
+namespace HandCodedFluentCUIT.Common.Navigation
 {
-    public class DashboardsSalesActivDocument : HtmlDocument
+    public class DashboardsDocument : HtmlDocument
     {
-        public DashboardsSalesActivDocument(UITestControl searchLimitContainer) 
+        public DashboardsDocument(UITestControl searchLimitContainer) 
             : base(searchLimitContainer)
         {
             #region Search Criteria
-            SearchProperties[HtmlControl.PropertyNames.Id] = null;
             SearchProperties[PropertyNames.RedirectingPage] = "False";
             SearchProperties[PropertyNames.FrameDocument] = "False";
-            //this.SearchProperties[HtmlDocument.PropertyNames.Title] = "Dashboards: Sales Activity Social Dashboard - Microsoft Dynamics 365";
             WindowTitles.Add("Dashboards: Sales Activity Social Dashboard - Microsoft Dynamics 365");
             WindowTitles.Add("Microsoft Dynamics 365");
             #endregion
@@ -42,18 +40,6 @@ namespace HandCodedFluentCUIT.Common
             }
         }
 
-        public TabHomePane TabHomePane
-        {
-            get
-            {
-                if (m_tabHomePane == null)
-                {
-                    m_tabHomePane = new TabHomePane(this);
-                }
-                return m_tabHomePane;
-            }
-        }
-
         public HtmlHyperlink ProjectServiceHyperlink
         {
             get
@@ -64,8 +50,6 @@ namespace HandCodedFluentCUIT.Common
                     #region Search Criteria
                     m_projectServiceHyperlink.SearchProperties[HtmlControl.PropertyNames.Id] = "proRM";
                     m_projectServiceHyperlink.SearchProperties[HtmlControl.PropertyNames.InnerText] = "\r\nProject Service";
-//                    this.m_projectServiceHyperlink.FilterProperties[HtmlHyperlink.PropertyNames.Title] = "Project Service";
-//                   this.m_projectServiceHyperlink.FilterProperties[HtmlHyperlink.PropertyNames.Class] = "navActionButtonContainer navActionButton navModuleButton normal";
                     m_projectServiceHyperlink.WindowTitles.Add("Dashboards: Sales Activity Social Dashboard - Microsoft Dynamics 365");
                     #endregion
                 }
@@ -82,11 +66,7 @@ namespace HandCodedFluentCUIT.Common
                     m_projectGanttHyperlink = new HtmlHyperlink(this);
                     #region Search Criteria
                     m_projectGanttHyperlink.SearchProperties[HtmlControl.PropertyNames.Id] = "prorm_gantt";
-/*
-                    this.m_projectGanttHyperlink.SearchProperties[HtmlHyperlink.PropertyNames.InnerText] = "Project Gantt";
-                    this.m_projectGanttHyperlink.FilterProperties[HtmlHyperlink.PropertyNames.Title] = "Project Gantt";
-                    this.m_projectGanttHyperlink.FilterProperties[HtmlHyperlink.PropertyNames.Class] = "nav-rowBody normal";
-*/                    
+                    m_projectGanttHyperlink.SearchProperties[HtmlControl.PropertyNames.InnerText] = "Project Gantt";
                     m_projectGanttHyperlink.WindowTitles.Add("Dashboards: Sales Activity Social Dashboard - Microsoft Dynamics 365");
                     #endregion
                 }
@@ -97,8 +77,6 @@ namespace HandCodedFluentCUIT.Common
 
         #region Fields
         private HtmlHyperlink m_firstnameLastnameHyperlink;
-
-        private TabHomePane m_tabHomePane;
 
         private HtmlHyperlink m_projectServiceHyperlink;
 

@@ -55,6 +55,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account\LoginWindow.cs" />
+    <Compile Include="Common\Navigation\NavigationBar.cs" />
+    <Compile Include="Common\Navigation\ProjectServiceButton.cs" />
     <Compile Include="ProjectService\Menu\AddnewprojectCustom.cs" />
     <Compile Include="ProjectService\Menu\AddChildTaskCustom.cs" />
     <Compile Include="ProjectService\EditProjectTaskWindowPane.cs" />
@@ -63,13 +65,13 @@
     <Compile Include="ProjectService\ToolBar\SaveButton.cs" />
     <Compile Include="ProjectService\EditProjectTaskResourceRolePane.cs" />
     <Compile Include="ProjectService\GanttBasePane.cs" />
-    <Compile Include="Common\DashboardsSalesActivDocument.cs" />
+    <Compile Include="Common\Navigation\DashboardsDocument.cs" />
     <Compile Include="Common\MainAppWindow.cs" />
-    <Compile Include="Common\MainContentAreaFrame.cs" />
+    <Compile Include="Common\Navigation\MainContentAreaFrame.cs" />
     <Compile Include="Common\MicrosoftDynamics365Document.cs" />
     <Compile Include="Common\MicrosoftDynamics365Window.cs" />
     <Compile Include="ProjectService\PromxCreateNewProjectPane.cs" />
-    <Compile Include="Common\TabHomePane.cs" />
+    <Compile Include="Common\Navigation\SalesButton.cs" />
     <Compile Include="Dialogs\FilterWindow.cs" />
     <Compile Include="ProjectService\ToolBar\ExpandAllButton.cs" />
     <Compile Include="ProjectService\Filter\FilterButtonOnGantt.cs" />

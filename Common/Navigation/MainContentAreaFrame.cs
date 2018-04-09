@@ -2,7 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UITesting;
 using Microsoft.VisualStudio.TestTools.UITesting.HtmlControls;
 
-namespace HandCodedFluentCUIT.Common
+namespace HandCodedFluentCUIT.Common.Navigation
 {
     public class MainContentAreaFrame : HtmlIFrame
     {
@@ -11,7 +11,7 @@ namespace HandCodedFluentCUIT.Common
             base(searchLimitContainer)
         {
             #region Search Criteria
-            SearchProperties[HtmlFrame.PropertyNames.Id] = "contentIFrame0";
+            SearchProperties[HtmlControl.PropertyNames.Id] = "contentIFrame0";
             SearchProperties[HtmlFrame.PropertyNames.Name] = "contentIFrame0";
             //this.FilterProperties[HtmlFrame.PropertyNames.Title] = "Content Area";
             WindowTitles.Add("Microsoft Dynamics 365");

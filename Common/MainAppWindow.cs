@@ -16,22 +16,23 @@ namespace HandCodedFluentCUIT.Common
         public MainAppWindow(MicrosoftDynamics365Window bw)
         {
             m_bw = bw;
-            m_salesHyperlink = m_bw.DashboardsSalesActivDocumen.TabHomePane.SalesHyperlink;
-            m_projectServiceHyperlink = m_bw.DashboardsSalesActivDocumen.ProjectServiceHyperlink;
-            m_projectGanttHyperlink = m_bw.DashboardsSalesActivDocumen.ProjectGanttHyperlink;
+            m_salesHyperlink = m_bw.NavigationBar.SalesButton.SalesHyperlink;
+            m_projectServiceHyperlink = m_bw.DashboardsDocument.ProjectServiceHyperlink;
+            m_projectGanttHyperlink = m_bw.DashboardsDocument.ProjectGanttHyperlink;
         }
 
         public ProjectGanttWindow GoToProjectGantt()
         {
-            m_bw.DashboardsSalesActivDocumen.WaitForControlReady(30000);
+            m_bw.NavigationBar.WaitForControlExist(30000);
             // Click 'Sales' link
             Mouse.Click(m_salesHyperlink);
 
+            m_bw.DashboardsDocument.WaitForControlExist(30000);
             // Click 'Project Service' link
-            Mouse.Click(m_projectServiceHyperlink, new Point(64, 25));
+            Mouse.Click(m_projectServiceHyperlink);
 
             // Click 'Project Gantt' link
-            Mouse.Click(m_projectGanttHyperlink, new Point(49, 21));
+            Mouse.Click(m_projectGanttHyperlink);
 
             return new ProjectGanttWindow(m_bw);
         }

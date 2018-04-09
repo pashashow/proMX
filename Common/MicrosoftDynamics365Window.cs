@@ -1,4 +1,5 @@
 ﻿using System;
+using HandCodedFluentCUIT.Common.Navigation;
 using Microsoft.VisualStudio.TestTools.UITesting;
 
 namespace HandCodedFluentCUIT.Common
@@ -32,15 +33,27 @@ namespace HandCodedFluentCUIT.Common
             }
         }
 
-        public DashboardsSalesActivDocument DashboardsSalesActivDocumen
+        public DashboardsDocument DashboardsDocument
         {
             get
             {
-                if (m_dashboardsSalesActivDocument == null)
+                if (m_dashboardDocument == null)
                 {
-                    m_dashboardsSalesActivDocument = new DashboardsSalesActivDocument(this);
+                    m_dashboardDocument = new DashboardsDocument(this);
                 }
-                return m_dashboardsSalesActivDocument;
+                return m_dashboardDocument;
+            }
+        }
+
+        public NavigationBar NavigationBar
+        {
+            get
+            {
+                if (m_navigationBar == null)
+                {
+                    m_navigationBar = new NavigationBar(this);
+                }
+                return m_navigationBar;
             }
         }
         #endregion
@@ -48,7 +61,10 @@ namespace HandCodedFluentCUIT.Common
         #region Fields
         private MicrosoftDynamics365Document m_mMicrosoftDynamics365Document;
 
-        private DashboardsSalesActivDocument m_dashboardsSalesActivDocument;
+        private NavigationBar m_navigationBar;
+
+        private DashboardsDocument m_dashboardDocument;
+
         #endregion
     }
 }
